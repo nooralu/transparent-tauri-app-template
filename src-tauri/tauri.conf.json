@@ -39,7 +39,8 @@
         "resizable": true,
         "title": "transparent-tauri-app-template",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "decorations": false
       }
     ]
   }
