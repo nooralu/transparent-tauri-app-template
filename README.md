@@ -81,3 +81,22 @@ And you also need to add `"startDragging": true` to `tauri.conf.json`.
   }
 }
 ```
+
+If you want ignore cursor events on the element, you need use API `setIgnoreCursorEvents` in JavaScript.
+
+```JavaScript
+import { appWindow } from '@tauri-apps/api/window';
+await appWindow.setIgnoreCursorEvents(true);
+```
+
+Or you can use API `set_ignore_cursor_events( &self, ignore: bool ) -> Result<(), ExternalError>` in Rust.
+
+```Rust
+tauri::Builder::default()
+  .setup(|app| {
+      let window = app.get_window("main").unwrap();
+      window.set_ignore_cursor_events(true)
+              .expect("error setting ignore cursor events");
+      Ok(())
+  })
+```
