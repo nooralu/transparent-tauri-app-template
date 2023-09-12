@@ -58,3 +58,26 @@ after:
 
 ![transparent](./screenshots/transparent.png)
 
+# Attention
+
+In #1, we set `"decorations": false` to `tauri.conf.json`, so that the window is borderless. But this will cause the window to be unable to be dragged. 
+
+There are some ways to solve this problem, the simplest way is to add attribute `data-tauri-drag-region` to the element that you want to drag the window. 
+
+```HTML
+<div data-tauri-drag-region>Only this element can drag the window</div>
+```
+
+And you also need to add `"startDragging": true` to `tauri.conf.json`.
+
+```JSON
+{
+  "tauri": {
+    "allowlist": {
+      "window": {
+        "startDragging": true
+      }
+    },
+  }
+}
+```

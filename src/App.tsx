@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="container">
+      <div data-tauri-drag-region>Only this element can drag the window</div>
       <h1>Welcome to Tauri!</h1>
 
       <div className="row">
